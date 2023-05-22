@@ -1,0 +1,24 @@
+.table {
+  border-collapse: collapse;
+  margin: 10px;
+  td, th {
+    border: 1px solid;
+    padding: 1rem;
+  }
+  overflow-y: scroll;
+  height: 200px;
+  width: 100%;
+  box-shadow: 5px 5px #888888;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #c0acac;
+}
+.table tbody tr:nth-child(odd) {
+  background-color: #878282;
+}
+
+.search {
+  display: flex;
+  justify-content: space-evenly;
+}

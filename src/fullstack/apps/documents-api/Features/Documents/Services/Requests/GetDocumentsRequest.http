@@ -1,0 +1,8 @@
+POST http://localhost:5028/Documents
+Content-Type: application/json
+
+{
+  "searchQuery: "",
+  "currentPage": "1",
+  "take": { "amount": "10"}
+}

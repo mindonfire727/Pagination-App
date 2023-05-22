@@ -1,0 +1,28 @@
+<h1>Dokumente</h1>
+<div class="search">
+  <form [formGroup]="myForm">
+    <label for="my-input">Suchanfrage: </label>
+    <input type="text" formControlName="searchQuery">
+  </form>
+  <fullstack-pagination (selected)="onPageSizeChanged($event)"></fullstack-pagination>
+</div>
+
+<table  class="table" *ngIf="isSuccess | async">
+  <tr>
+    <th>Nummer</th>
+    <th>Erstellt am</th>
+    <th>Ersteller</th>
+    <th>Typ</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let document of documents">
+      <td>{{ document.number }}</td>
+      <td>{{ document.createdAt | date : 'dd.MM.yyyy' }}</td>
+      <td>{{ document.author }}</td>
+      <td>{{ document.type }}</td>
+    </tr>
+  </tbody>
+</table>
+<h1 *ngIf="(isSuccess | async) === false">{{errorMessage}}</h1>
+
+<fullstack-pagination-bar [numberOfPages]="numberOfPages" (selectedPage)="onChangedPage($event)"></fullstack-pagination-bar>
